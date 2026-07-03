@@ -1,2 +1,2 @@
 # solotransform-website
-sT's official website
+sT official website
