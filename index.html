@@ -4,38 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoloTRANSFORM</title>
+    <meta name="description" content="Skills to Solo Income: a free weekly newsletter for mid-career professionals who want to turn career expertise into independent income. By Laurence Kuek.">
+    <meta property="og:title" content="SoloTRANSFORM | Income that travels with you">
+    <meta property="og:description" content="Your career already built the skills for a one-person business. Each Saturday, one issue helps you see them.">
+    <meta property="og:url" content="https://solotransform.com/">
+    <meta property="og:image" content="https://solotransform.com/logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-orange: #ff5500; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        header { color: var(--primary-orange); font-size: 1.5rem; margin-bottom: 20px; }
-        .hero { margin-bottom: 40px; }
-        .hero h1 { font-weight: normal; }
-        .product-card { border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin-bottom: 40px; }
-        .product-card h2 { font-weight: normal; }
-        .btn { background-color: var(--primary-orange); color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; display: inline-block; }
-        footer { font-size: 0.9rem; color: #666; }
-        footer a { color: inherit; text-decoration: none; }
+        :root {
+            --bg: #FAFAF7;
+            --fg: #333330;
+            --accent: #FF5500;
+            --muted: #6E6C65;
+            --line: #E4E2DB;
+            color-scheme: light;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+        .brand { display: flex; align-items: center; gap: 12px; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; text-decoration: none; }
+        .brand img { width: 36px; height: 36px; border-radius: 4px; display: block; }
+        .brand .word span { color: var(--accent); }
+        .header-link { font-size: 0.95rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+        /* Hero */
+        .hero { padding: 72px 0 88px; }
+        .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+        h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.03em; }
+        h1 .o { color: var(--accent); }
+        .lede { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 28px 0 36px; }
+        .btn {
+            display: inline-block; background: var(--accent); color: #fff; font-weight: 600;
+            padding: 15px 26px; border-radius: 6px; text-decoration: none;
+            transition: transform 0.15s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-quiet { background: transparent; color: var(--fg); border: 1px solid var(--fg); }
+        .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+        .note { font-size: 0.9rem; color: var(--muted); margin-top: 16px; }
+
+        /* Sections */
+        section { padding: 72px 0; border-top: 1px solid var(--line); }
+        .label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+        h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 40px; }
+        .rule { width: 48px; height: 4px; background: var(--accent); margin-bottom: 28px; }
+
+        .points { list-style: none; display: grid; gap: 32px; }
+        .points li { display: grid; grid-template-columns: 56px 1fr; gap: 8px; }
+        .points .num { font-size: 1.1rem; font-weight: 600; color: var(--muted); }
+        .points h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+        .points p { color: var(--muted); }
+
+        .about p { margin-bottom: 18px; }
+        .about .muted { color: var(--muted); }
+        .stats { display: flex; gap: 48px; flex-wrap: wrap; margin-top: 32px; }
+        .stat b { display: block; font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+        .stat span { font-size: 0.9rem; color: var(--muted); }
+
+        .product-card { border: 1px solid var(--line); background: #fff; padding: 28px; border-radius: 10px; }
+        .product-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
+        .product-card p { color: var(--muted); margin-bottom: 20px; }
+        .product-card .price { font-weight: 600; margin-left: 12px; }
+
+        .closing { text-align: center; padding: 96px 0; }
+        .closing h2 { margin-bottom: 12px; }
+        .closing .slogan { color: var(--muted); margin-bottom: 32px; }
+
+        footer { border-top: 1px solid var(--line); padding: 28px 0 48px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.9rem; color: var(--muted); }
+        footer .links { display: flex; gap: 20px; flex-wrap: wrap; }
+        footer a { text-decoration: none; }
+        footer a:hover { color: var(--fg); }
+
+        @media (max-width: 600px) {
+            .wrap { padding: 0 16px; }
+            .hero { padding: 40px 0 64px; }
+            section { padding: 56px 0; }
+            .points li { grid-template-columns: 40px 1fr; }
+            .closing { padding: 72px 0; }
+        }
     </style>
 </head>
 <body>
-    <header>SoloTRANSFORM</header>
-    
+<div class="wrap">
+
+    <header>
+        <a href="/" class="brand"><img src="logo.png" alt="sT logo" width="36" height="36"><span class="word">Solo<span>TRANSFORM</span></span></a>
+        <a href="https://solotransform.beehiiv.com/subscribe" class="header-link" target="_blank" rel="noopener">Newsletter</a>
+    </header>
+
     <div class="hero">
-        <h1>AI-assisted systems for professionals exploring the path from employee to solopreneur.</h1>
-        <p>Practical tools for the accomplished-but-anxious - built for people who want out of the 9-to-5, without becoming a programmer.</p>
+        <p class="eyebrow">Skills to Solo Income &middot; Every Saturday</p>
+        <h1>Your career already built a business. <span class="o">You just can't see it yet.</span></h1>
+        <p class="lede">A free weekly newsletter for mid-career professionals who want to turn their expertise into independent income &mdash; with AI doing the heavy lifting, and without betting the salary on a guess.</p>
+        <div class="cta-row">
+            <a href="https://solotransform.beehiiv.com/subscribe" class="btn" target="_blank" rel="noopener">Get the Saturday issue &mdash; free</a>
+            <a href="https://solotransform.beehiiv.com/" class="btn btn-quiet" target="_blank" rel="noopener">Read past issues</a>
+        </div>
+        <p class="note">One email a week. Unsubscribe in one click.</p>
     </div>
 
-    <div class="product-card">
-        <h3>AVAILABLE NOW</h3>
-        <h2>The Sellable Skills Audit</h2>
-        <p>5-section audit that surfaces your top 3 sellable skills from your existing career - in 60 minutes, no tools required</p>
-        <a href="https://solotransform.gumroad.com/l/skills-audit" class="btn" target="_blank" rel="noopener">Get the Audit on Gumroad ▶</a> $27
-    </div>
+    <section>
+        <p class="label">What you get</p>
+        <h2>One issue. One clear idea. One step to take before Monday.</h2>
+        <ul class="points">
+            <li>
+                <span class="num">01</span>
+                <div><h3>Research, not hype</h3><p>What the data says about professionals who go solo, and where the real risks sit.</p></div>
+            </li>
+            <li>
+                <span class="num">02</span>
+                <div><h3>Structured thinking</h3><p>Frameworks that turn messy career experience into a clear view of what people will pay for.</p></div>
+            </li>
+            <li>
+                <span class="num">03</span>
+                <div><h3>A margin of safety</h3><p>Small, testable steps you can take while still employed. No leap of faith required.</p></div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="about">
+        <p class="label">Who writes it</p>
+        <h2>Laurence Kuek</h2>
+        <div class="rule"></div>
+        <p>For over two decades I trained professionals for some of the hardest exams in finance &mdash; ACCA, ICSA, LCCI. Before that, I ran operations turnarounds in the UK, building measurement systems from scratch.</p>
+        <p class="muted">The pattern I saw again and again: capable people with real, valuable skills, who could not name which of those skills would sell on their own.</p>
+        <p class="muted">Skills to Solo Income is where I close that gap. I am building a one-person business in public, and I share what works, what fails, and the numbers behind both.</p>
+        <div class="stats">
+            <div class="stat"><b>20+</b><span>years teaching professionals</span></div>
+            <div class="stat"><b>1,000s</b><span>candidates prepared</span></div>
+        </div>
+    </section>
+
+    <section>
+        <p class="label">Tools</p>
+        <div class="product-card">
+            <h3>The Sellable Skills Audit</h3>
+            <p>A 5-section audit that surfaces your top 3 sellable skills from your existing career &mdash; in 60 minutes, no tools required.</p>
+            <a href="https://solotransform.gumroad.com/l/skills-audit" class="btn btn-quiet" target="_blank" rel="noopener">Get the Audit on Gumroad</a><span class="price">$27</span>
+        </div>
+    </section>
+
+    <section class="closing">
+        <h2>Start with Saturday's issue.</h2>
+        <p class="slogan">SoloTRANSFORM. Income that travels with you.</p>
+        <a href="https://solotransform.beehiiv.com/subscribe" class="btn" target="_blank" rel="noopener">Subscribe free</a>
+    </section>
 
     <footer>
-        <p>&copy; 2026 SoloTRANSFORM</p>
-        <p><a href="mailto:laurence@solotransform.com" target="_blank" rel="noopener">laurence@solotransform.com</a></p>
-        <p><a href="https://x.com/LaurenceKuek" target="_blank" rel="noopener">@LaurenceKuek on X</a></p>
+        <span>&copy; 2026 SoloTRANSFORM</span>
+        <div class="links">
+            <a href="https://solotransform.beehiiv.com/" target="_blank" rel="noopener">Newsletter</a>
+            <a href="mailto:laurence@solotransform.com">laurence@solotransform.com</a>
+            <a href="https://x.com/LaurenceKuek" target="_blank" rel="noopener">@LaurenceKuek on X</a>
+        </div>
     </footer>
+
+</div>
 </body>
 </html>
