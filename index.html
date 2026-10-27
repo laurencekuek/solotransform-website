@@ -79,7 +79,8 @@
         .product-card { border: 1px solid var(--line); background: #fff; padding: 28px; border-radius: 10px; }
         .product-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
         .product-card p { color: var(--muted); margin-bottom: 20px; }
-        .product-card .price { font-weight: 600; margin-left: 12px; }
+        .product-card .buy { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .product-card .price { font-size: 1.25rem; font-weight: 600; white-space: nowrap; }
 
         .closing { text-align: center; padding: 96px 0; }
         .closing h2 { margin-bottom: 12px; }
@@ -96,6 +97,8 @@
             section { padding: 56px 0; }
             .points li { grid-template-columns: 40px 1fr; }
             .closing { padding: 72px 0; }
+            .product-card { padding: 22px; }
+            .btn { text-align: center; }
         }
     </style>
 </head>
@@ -155,7 +158,10 @@
         <div class="product-card">
             <h3>The Sellable Skills Audit</h3>
             <p>A 5-section audit that surfaces your top 3 sellable skills from your existing career &mdash; in 60 minutes, no tools required.</p>
-            <a href="https://solotransform.gumroad.com/l/skills-audit" class="btn btn-quiet" target="_blank" rel="noopener">Get the Audit on Gumroad</a><span class="price">$27</span>
+            <div class="buy">
+                <span class="price">$27</span>
+                <a href="https://solotransform.gumroad.com/l/skills-audit" class="btn btn-quiet" target="_blank" rel="noopener">Get the Audit on Gumroad</a>
+            </div>
         </div>
     </section>
 
